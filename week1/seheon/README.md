@@ -15,7 +15,8 @@
     - `Raspberry Pi5` 의 경우 `USB`와 `USB - A 변환 이더넷 어댑터`가 필요함 (내장 이더넷 포트가 초기 부팅 시 비활성화됨).
     - 최신 `Raspberry Pi OS`와 `Proxmox`가 충돌할 수 있음.
     - `UEFI 펌웨어`를 사용하여 설치해야 함.
-    - 내장 이더넷 포트는 `UEFI 부팅 단계에서 비활성화`되므로, 네트워크 연결을 위해 **USB 이더넷 어댑터**가 필요함.
+    > UEFI (Unified Extensible Firmware Interface)  :  운영체제를 부팅시키기 전에 실행되는 프로그램(펌웨어). **BIOS의 업그레이드 버전**
+- 내장 이더넷 포트는 `UEFI 부팅 단계에서 비활성화`되므로, 네트워크 연결을 위해 **USB 이더넷 어댑터**가 필요함.
 - 나는 `Raspberry Pi5 8gb`를 사용했다. (주변 장비 사니까 미니 PC랑 비슷하게 들었다…)
 - MSA같이 여러 서버를 돌릴 것을 예상하고 AWS 기준 t3.medium?보다 좀 더 나은 성능을 원했다.
 - `Raspberry Pi5` 와 `Raspberry Pi 4` 에서 Proxmox 세팅 차이가 있으니 주의하자!
@@ -25,6 +26,8 @@
 - Switch
     - OSI 2계층
     - `MAC 주소`를 기반으로 `네트워크 내`에서 데이터를 전송
+    - `같은 목적`의 네트워크끼리 묶을때 사용.
+    - `VLAN` 등을 이용하여 `목적이 다른` 네트워크를 분할할 수 도 있음
 - Router
     - OSI 3계층
     - `IP 주소`를 기반으로 `서로 다른 네트워크` 간에 데이터를 전달
@@ -53,12 +56,18 @@
     - HostOnly
         - VM과 호스트만 통신 가능
         - 인터넷 연결 X
-- DHCP (Dynamic Host Configuration Protocol)
+- **DHCP (Dynamic Host Configuration Protocol)**
     - 자동으로 IP를 할당하거나 수동으로 고정 IP를 설정할 수 있음
     - DHCP는 **UDP 67번(서버) / UDP 68번(클라이언트)** 포트
+    - DHCP는 UDP
+        - DHCP Discover 메시지는 클라이언트가 네트워크에 처음 연결될 때 브로드캐스트로 전송되어야 합니다.
+        - TCP는 연결 기반 프로토콜로, 브로드캐스트를 지원하지 않습니다.
+        - UDP는 연결이 필요 없고, 가볍기 때문에 빠른 초기 통신에 적합합니다.
+        
     - **클라이언트(VM 등)가 먼저 요청하면 DHCP 서버가 IP를 할당**
     - 공유기
     - 고정 IP
+        - DNS, Webhook(서버가 서버에게) 등..
     - VM 2대 (DHCP 서버, IP 할당받는 VM)
     - ISP (Internet Service Provider)
         - 인터넷 제공 업체. IP 할당, DNS 제공..
