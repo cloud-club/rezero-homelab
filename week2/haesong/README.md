@@ -121,6 +121,26 @@ PC2는 받은 패킷을 확인하고, 응답 패킷을 생성하여 다시 PC1�
 ## **📌 결론**
 라우터에 연결된 PC들이 **같은 네트워크에서 통신할 때**는 **MAC 주소를 기반으로 직접 통신**하며, 라우터는 개입하지 않습니다. 하지만 **다른 네트워크와 통신할 때**는 라우터가 패킷을 전달하는 역할을 합니다.  
 
+```mermaid
+sequenceDiagram
+    participant PC1 as PC1
+    participant Switch as 스위치
+    participant PC2 as PC2
+    
+    PC1->>Switch: ARP 요청 (브로드캐스트)
+    Note right of PC1: "PC2의 MAC 주소는?"
+    
+    Switch->>PC2: ARP 요청 전달
+    PC2->>PC1: ARP 응답
+    Note right of PC2: "내 MAC 주소는 이거야"
+    
+    Note over PC1: MAC 주소 저장
+    
+    PC1->>PC2: 데이터 전송
+    Note right of PC1: MAC 주소 이용 직접 통신
+    
+    PC2->>PC1: 응답 데이터
+
 ---
 ## 2. 만들어보자.
 
