@@ -142,7 +142,7 @@ sequenceDiagram
     PC2->>PC1: 응답 데이터
 
 ---
-## 2. 만들어보자.
+## 2. 자, 이제 DHCP를 직접 구축해보자.
 
 DHCP server - host only adaptor 카드 2개가 필요하다.   (클라이언트와 같은거, 인터넷이 되는거)
 
