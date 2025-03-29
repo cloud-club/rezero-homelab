@@ -104,3 +104,7 @@ Comparison with a general router-assigned IP:
 
 ### Future works
 - Install k8s cluster on my homelab for study
+- Read references
+  - [How tailscale works](https://tailscale.com/blog/how-tailscale-works)
+  - [How NAT traversak works](https://tailscale.com/blog/how-nat-traversal-works)
+  - [How DERP server works](https://tailscale.com/kb/1232/derp-servers)
