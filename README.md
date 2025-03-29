@@ -65,7 +65,7 @@
     <td align="center"><a href="https://github.com/seheonnn"><img src="https://avatars.githubusercontent.com/u/101795921?v=4" width="100px;" alt=""/><br /><sub><b>
 호세헌</b></sub></a><br /></td>
     <td align="center"><a href="https://github.com/mjttong"><img src="https://avatars.githubusercontent.com/u/145860909?v=4" width="100px;" alt=""/><br /><sub><b>
-호세헌</b></sub></a><br /></td>
+권민정</b></sub></a><br /></td>
   </tr>
 </table>
 
