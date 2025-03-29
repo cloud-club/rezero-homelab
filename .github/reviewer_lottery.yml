@@ -1,0 +1,6 @@
+groups:
+  - name: reviewer
+    reviewers: 2
+    usernames:
+      - yureutaejin
+      - Cybecho
