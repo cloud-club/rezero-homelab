@@ -94,7 +94,7 @@
     - 우분투의 공인 IP를 확인해 공인 IP를 통한 ssh 연결 시도
         
         ```bash
-        curl ipconfig.me
+        curl ifconfig.me
         ```
         
         - 연결 실패
